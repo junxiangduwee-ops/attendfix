@@ -27,8 +27,8 @@ async function main() {
   }
 
   const employees = [
-    { name:'Ahmad Razif Bin Bakar',  email:'employee@mrdiy.com',           staff_id:'E-04291', dept:'Operations'      },
-    { name:'Mohd Hafiz Bin Yusof',   email:'mohd.hafiz@mrdiy.com',     staff_id:'E-04292', dept:'Operations'      },
+    { name:'Ahmad Razif Bin Bakar',  email:'ahmad.razif@mrdiy.com',    staff_id:'E-04291', dept:'Operations'      },
+    { name:'Mohd Hafiz Bin Yusof',   email:'employee@mrdiy.com',       staff_id:'E-04292', dept:'Operations'      },
     { name:'Nurul Huda Bt Ramlan',   email:'nurul.huda@mrdiy.com',     staff_id:'E-04293', dept:'Operations'      },
     { name:'Azri Bin Othman',        email:'azri.othman@mrdiy.com',    staff_id:'E-04294', dept:'Operations'      },
     { name:'Saleha Bt Zainal',       email:'saleha.zainal@mrdiy.com',  staff_id:'E-04295', dept:'Operations'      },

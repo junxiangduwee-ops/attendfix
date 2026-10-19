@@ -136,3 +136,21 @@ async function migrate() {
 }
 
 module.exports = migrate;
+
+async function reset() {
+  console.log('⏳ Dropping all tables…')
+  // Drop in reverse order to respect foreign keys
+  const dropOrder = ['audit_logs','hr_sync_log','notifications','correction_requests','attendance','users']
+  for (const t of dropOrder) {
+    await db.schema.dropTableIfExists(t)
+    console.log(`   dropped: ${t}`)
+  }
+  await migrate()
+}
+
+const isReset = process.argv.includes('--reset')
+if (isReset) {
+  reset().then(() => { console.log('✅ Reset complete.'); process.exit(0) }).catch(e => { console.error(e); process.exit(1) }).finally(() => db.destroy())
+} else {
+  migrate().then(() => process.exit(0)).catch(e => { console.error(e); process.exit(1) }).finally(() => db.destroy())
+}

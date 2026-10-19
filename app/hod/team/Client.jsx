@@ -2,10 +2,13 @@
 import { useEffect, useState } from 'react'
 function fmtDate(d) { if(!d) return '—'; const dt=new Date(d+'T00:00'); return dt.toLocaleDateString('en-MY',{weekday:'short',day:'numeric',month:'short'}) }
 function attendanceBadge(r) {
-  if (!r.clockIn && !r.clockOut) return <span className="badge miss"><span className="badge-dot"></span>Missing</span>
-  if (!r.clockIn) return <span className="badge miss"><span className="badge-dot"></span>No in</span>
-  if (!r.clockOut) return <span className="badge miss"><span className="badge-dot"></span>No out</span>
-  return <span className="badge ok"><span className="badge-dot"></span>OK</span>
+  const ci = r.clock_in  || r.clockIn
+  const co = r.clock_out || r.clockOut
+  if (!ci && !co) return <span className="badge miss"><span className="badge-dot"></span>Missing</span>
+  if (!ci) return <span className="badge miss"><span className="badge-dot"></span>No in</span>
+  if (!co) return <span className="badge miss"><span className="badge-dot"></span>No out</span>
+  if (r.source === 'CORRECTED') return <span className="badge fill"><span className="badge-dot"></span>Corrected</span>
+  return <span className="badge ok"><span className="badge-dot"></span>Complete</span>
 }
 export default function Client() {
   const today = new Date(), from6 = new Date(today); from6.setDate(today.getDate()-6)
@@ -45,7 +48,7 @@ export default function Client() {
                 <td><div style={{ fontWeight:600 }}>{emp.name}</div><div style={{ fontSize:11, color:'var(--text3)' }}>{emp.staffId}</div></td>
                 {data.dates.map(d=>{
                   const rec = emp.days[d]
-                  return <td key={d} style={{ textAlign:'center' }}>{rec ? <>{attendanceBadge(rec)}<div style={{ fontSize:10, color:'var(--text3)', marginTop:3 }}>{rec.clockIn?rec.clockIn.slice(0,5):'?'}–{rec.clockOut?rec.clockOut.slice(0,5):'?'}</div></> : <span style={{ color:'var(--text3)' }}>—</span>}</td>
+                  return <td key={d} style={{ textAlign:'center' }}>{rec ? <>{attendanceBadge(rec)}<div style={{ fontSize:10, color:'var(--text3)', marginTop:3 }}>{(rec.clock_in||rec.clockIn)?(rec.clock_in||rec.clockIn).slice(0,5):'?'}–{(rec.clock_out||rec.clockOut)?(rec.clock_out||rec.clockOut).slice(0,5):'?'}</div></> : <span style={{ color:'var(--text3)' }}>—</span>}</td>
                 })}
               </tr>
             ))}</tbody>
