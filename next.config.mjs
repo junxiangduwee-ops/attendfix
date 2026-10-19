@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  serverExternalPackages: ['bcryptjs', '@prisma/client', 'node-cron', 'nodemailer'],
+  serverExternalPackages: ['knex', 'pg', 'bcryptjs', 'node-cron', 'nodemailer', 'xlsx'],
+  turbopack: {
+    resolveExtensions: ['.js', '.jsx', '.ts', '.tsx'],
+  },
 }
 export default nextConfig

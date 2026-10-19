@@ -1,4 +1,5 @@
-const db = require('./db');
+require('dotenv').config({ path: require('path').join(__dirname, '../.env') })
+const db = require('../lib/db-cjs.js');
 
 // All tables in creation order (dependencies first)
 const TABLES = [

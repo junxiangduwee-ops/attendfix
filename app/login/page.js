@@ -32,7 +32,7 @@ export default function LoginPage() {
           <div className="card-body">
             <div style={{ background:'var(--blue-l)', border:'1px solid #C7D0FF', borderRadius:10, padding:14, marginBottom:20, fontSize:12 }}>
               <strong style={{ display:'block', color:'var(--blue-d)', marginBottom:6, fontSize:11, textTransform:'uppercase', letterSpacing:'.04em' }}>🎮 Demo accounts</strong>
-              <div style={{ display:'flex', justifyContent:'space-between', marginBottom:4, color:'var(--text2)' }}><span>Employee</span><b style={{ fontFamily:'monospace', fontSize:11, color:'var(--text)' }}>user@mrdiy.com / emp123</b></div>
+              <div style={{ display:'flex', justifyContent:'space-between', marginBottom:4, color:'var(--text2)' }}><span>Employee</span><b style={{ fontFamily:'monospace', fontSize:11, color:'var(--text)' }}>employee@mrdiy.com / emp123</b></div>
               <div style={{ display:'flex', justifyContent:'space-between', marginBottom:4, color:'var(--text2)' }}><span>HOD</span><b style={{ fontFamily:'monospace', fontSize:11, color:'var(--text)' }}>hod@mrdiy.com / hod123</b></div>
               <div style={{ display:'flex', justifyContent:'space-between', color:'var(--text2)' }}><span>HR</span><b style={{ fontFamily:'monospace', fontSize:11, color:'var(--text)' }}>hr@mrdiy.com / hr123</b></div>
             </div>

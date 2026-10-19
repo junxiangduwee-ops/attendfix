@@ -27,7 +27,7 @@ export default function DashboardClient() {
 
   return (
     <div>
-      <div className="page-title">Welcome back{user ? `, ${user.name.split(' ')[0]}` : ''} 👋</div>
+      <div className="page-title">Welcome back{user?.name ? `, ${user.name.split(' ')[0]}` : ''} 👋</div>
       <div className="page-sub">{new Date().toLocaleDateString('en-MY',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}</div>
 
       <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(160px,1fr))', gap:16, margin:'20px 0' }}>
